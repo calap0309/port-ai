@@ -193,9 +193,10 @@ desktop monitor (or use your browser's responsive/device mode).
 - **No contact form.** There is no backend, so the contact section lists details
   instead of sending messages. Add a form service (e.g. Formspree) later if you
   want one.
-- **Placeholder content.** All projects, skills levels, goals and contact
-  details are intentionally placeholders — nothing has been invented about the
-  owner.
+- **Some placeholder content.** The About text, skill levels, goals and contact
+  details are still placeholders — replace them with your own. The Projects
+  section now shows real, live projects (Event Horizon, Poker Room, Blaze Anime)
+  with preview screenshots in `assets/`.
 - **Backdrop blur support.** `backdrop-filter` is unsupported in some older
   browsers; the site falls back to a solid panel colour so text stays legible.
 - **Google Fonts.** Typography loads from Google Fonts. If you need the site to

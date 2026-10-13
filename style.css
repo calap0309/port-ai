@@ -571,14 +571,29 @@ strong {
 
 /* Gradient placeholder preview box (no image required) */
 .project__thumb {
-  height: 150px;
+  position: relative;
+  aspect-ratio: 16 / 10;
   display: grid;
   place-items: center;
+  overflow: hidden;
   background:
     radial-gradient(120% 120% at 0% 0%, rgba(139, 92, 246, 0.5), transparent 55%),
     radial-gradient(120% 120% at 100% 100%, rgba(59, 130, 246, 0.5), transparent 55%),
     var(--bg-soft);
   border-bottom: 1px solid var(--border);
+}
+/* Preview screenshot of the project. Falls back to the gradient above. */
+.project__thumb img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.6s var(--ease);
+}
+.project:hover .project__thumb img {
+  transform: scale(1.04);
 }
 .project__thumb-label {
   font-family: var(--font-head);
@@ -609,10 +624,21 @@ strong {
   background: rgba(168, 85, 247, 0.1);
 }
 
-/* Push the link to the bottom of every card so rows line up */
-.project__body .btn--link {
+/* Push the links to the bottom of every card so rows line up */
+.project__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
   margin-top: auto;
-  align-self: flex-start;
+}
+/* The second link ("Code") is quieter than the live demo */
+.project__links .btn--link + .btn--link {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+.project__links .btn--link + .btn--link:hover {
+  color: var(--text);
 }
 
 /* ==========================================================================
